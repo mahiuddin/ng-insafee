@@ -18,9 +18,30 @@
         <input type="number" [(ngModel)]="product.quantity" class="form-control">
       </div>
       <button class="btn btn-primary" (click)="saveProduct()">Save</button>
+      <span><button class="btn btn-primary" (click)="clearProduct()">Delete</button></span>
 </div>
 <div class="container">
-      <pre>
-        {{ product | json }}
-      </pre>
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr> 
+        <tr *ngFor="let product of products">
+            <td>{{ product.id + 1 }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+                <button (click)="editProduct(product)">Edit</button>
+                <button (click)="deleteProduct(product)">Delete</button>
+            </td>
+        </tr>
+    </tbody> 
+    </table>  
 </div>
