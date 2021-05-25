@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   }
 
   reload(){
-    const products = localStorage.getItem("product") ?? JSON.stringify({} as Product);
+    var products = localStorage.getItem("product") ?? JSON.stringify(this.products);
     this.products = JSON.parse(products);
   }
 
